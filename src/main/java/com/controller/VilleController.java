@@ -15,7 +15,7 @@ public class VilleController {
 
 	@Autowired
 	VilleBlo villeService;
-		
+		//test push
 	@RequestMapping(value = "/ville", method = RequestMethod.GET)
 	@ResponseBody
 	public Ville appelGet(@RequestParam(required = false, value = "codePostal") String codePostal) {
