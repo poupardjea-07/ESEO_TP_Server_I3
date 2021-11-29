@@ -1,10 +1,10 @@
 package com.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.blo.VilleBlo;
@@ -15,13 +15,28 @@ public class VilleController {
 
 	@Autowired
 	VilleBlo villeService;
-		//test push 22	@RequestMapping(value = "/ville", method = RequestMethod.GET)
-	@ResponseBody
-	public Ville appelGet(@RequestParam(required = false, value = "codePostal") String codePostal) {
-		System.out.println("Appel Get");
-		System.out.println("code postal : "+codePostal);
-		
-		return villeService.getInfoVilles();
+
+	@GetMapping(value = "/villes")
+	public List<Ville> getAllVilles() {
+		System.out.println("Get all villes");
+		return villeService.getAllVilles();
 	}
+	
+	@GetMapping(value = "/villes/nom/{nom}")
+	public Ville getVilleByNom(@PathVariable String nom) {
+		System.out.println("Get ville by nom");
+		return villeService.getInfoVilleByNom(nom);
+	}
+	
+	@GetMapping(value = "/villes/{code}")
+	public Ville getVilleByCodeCommune(@PathVariable String code) {
+		System.out.println("Get ville by code");
+		return villeService.getInfoVilleByCode(code);
+	}
+	
+	
+	
+	
+	
 	
 }

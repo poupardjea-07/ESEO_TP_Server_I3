@@ -1,5 +1,7 @@
 package com.blo;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,9 +15,26 @@ public class VilleBloImpl implements VilleBlo{
 	private VilleDao villeDao;
 
 	@Override
-	public Ville getInfoVilles() {
+	public Ville getInfoVilleByCode(String code) {
 		
-		return villeDao.findVille();
+		Ville ville = villeDao.findVilleByCode(code);
+		return ville;
+		
+	}
+	
+	@Override
+	public Ville getInfoVilleByNom(String nom) {
+		
+		Ville ville = villeDao.findVilleByNom(nom);
+		return ville;
+		
+	}
+	
+	@Override
+	public List<Ville> getAllVilles() {
+		
+		List<Ville> villes = villeDao.getAllRows();
+		return villes;
 		
 	}
 }

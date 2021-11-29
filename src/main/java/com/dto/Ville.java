@@ -12,14 +12,10 @@ import lombok.NoArgsConstructor;
 public class Ville {
 
 	private String codeCommune;
-	private String commune;
-
-	
-	public String getCodeCommune() {
-		return codeCommune;
-	}
-
-	public void setCodeCommune(String codeCommune) {
-		this.codeCommune = codeCommune;
-	}
+	private String nomCommune;
+	private String codePostal;
+	private String libelle;
+	private String ligne;
+	private String latitude;
+	private String longitude;
 }
